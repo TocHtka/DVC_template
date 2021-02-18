@@ -1,0 +1,29 @@
+stages:
+  resize:
+    cmd: python src/resize.py data/raw_images data/resized
+    deps:
+    - data/raw_images
+    - src/resize.py
+    params:
+    - resize.height
+    - resize.width
+    outs:
+    - data/resized
+  nl-mean:
+    cmd: python src/nl_mean.py data/resized data/nl-mean
+    deps:
+    - data/resized
+    - src/nl_mean.py
+    params:
+    - nl-mean.patch_distance
+    - nl-mean.patch_size
+    outs:
+    - data/nl-mean
+  # R script. Commented out so not so much installation needed.
+  # image_statistics:
+    # cmd: Rscript src/image_statistics.R data/nl-mean data/statistics.csv
+    # deps:
+    # - data/nl-mean
+    # - src/image_statistics.R
+    # outs:
+    # - data/statistics.csv

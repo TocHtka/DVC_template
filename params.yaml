@@ -1,0 +1,8 @@
+resize:
+  width: 200
+  height: 210
+
+nl-mean:
+  patch_size: 5
+  patch_distance: 6
+  h: 0.6

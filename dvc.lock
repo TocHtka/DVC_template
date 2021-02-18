@@ -1,0 +1,38 @@
+resize:
+  cmd: python src/resize.py data/raw_images data/resized
+  deps:
+  - path: data/raw_images
+    md5: 157d08f4dd92b39488a711a31bdbe15f.dir
+    size: 128225
+    nfiles: 4
+  - path: src/resize.py
+    md5: 977e3ce5c1e63777ccc38dd84ffce753
+    size: 860
+  params:
+    params.yaml:
+      resize.height: 210
+      resize.width: 200
+  outs:
+  - path: data/resized
+    md5: 3ade300fa61c8ab0c8e27a8fe9cc6c1e.dir
+    size: 62035
+    nfiles: 4
+nl-mean:
+  cmd: python src/nl_mean.py data/resized data/nl-mean
+  deps:
+  - path: data/resized
+    md5: 3ade300fa61c8ab0c8e27a8fe9cc6c1e.dir
+    size: 62035
+    nfiles: 4
+  - path: src/nl_mean.py
+    md5: 6238d92c792f3b2d87d92e3b2492d9a6
+    size: 1279
+  params:
+    params.yaml:
+      nl-mean.patch_distance: 6
+      nl-mean.patch_size: 5
+  outs:
+  - path: data/nl-mean
+    md5: 6f4f04977b3948a9c1f51e1ec8628793.dir
+    size: 46842
+    nfiles: 4

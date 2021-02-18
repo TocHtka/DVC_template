@@ -1,0 +1,4 @@
+[core]
+    remote = projectremote
+['remote "projectremote"']
+    url = R:/HTK_Allgemein/Austausch_HTKA_HTKW/dvc_example
