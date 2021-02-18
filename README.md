@@ -33,8 +33,10 @@ dvc dag
 
 ### change branch
 
+Change to another branch. On this branch the parameter height was adapted. After using dvc repro the output data should have changed without having recomputed anything.
+
 ```
-git checkout featureBranch
+git checkout changedImageSize
 dvc repro
 ```
 
