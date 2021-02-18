@@ -9,7 +9,7 @@ git clone https://github.com/TocHtka/DVC_template.git
 If you use conda:
 
 ```
-conda create --name dvc_example --file requirements.txt
+conda env create -f environment.yml
 ```
 
 Manual installation:
