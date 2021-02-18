@@ -112,7 +112,7 @@ C:.
 
 ## Set up your own project
 
-Create folder and use `<git init>`.
+Create folder and use `git init`.
 
 Initialize dvc:
 
@@ -136,6 +136,8 @@ stages:
     - resize.width
     outs:							<- output file/folder
     - data/resized
+  nl-mean:
+...
 ```
 
 Define parameters in **params.yaml**
