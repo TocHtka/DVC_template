@@ -110,3 +110,59 @@ C:.
         resize.py
 ```
 
+## Set up your own project
+
+Create folder and use `<git init>`.
+
+Initialize dvc:
+
+```
+dvc init
+```
+
+Define your pipeline in **dvc.yaml**:
+
+```
+stages:
+  resize: 							<- stage name
+    cmd: python src/resize.py data/raw_images data/resized 	<- command to be executed
+    deps: <- dependencies
+    - data/raw_images 						<- data
+    - src/resize.py 						<- code
+#   - K:/DVC_external_dependency				<- external dependency on Helbling Drive.
+#   - s3://mybucket/data.txt					<- external dependency on S3.
+    params: 							<- parameters
+    - resize.height
+    - resize.width
+    outs:							<- output file/folder
+    - data/resized
+```
+
+Define parameters in **params.yaml**
+
+```
+resize:
+  width: 200
+  height: 210
+nl-mean:
+resize:
+  width: 200
+  height: 210
+
+nl-mean:
+  patch_size: 5
+```
+
+Define a remote storage for data versioning and sharing with other colleagues:
+
+```
+dvc remote add -d projectRemote R:/HTK_Allgemein/Austausch_HTKA_HTKW/dvc_example
+```
+or 
+```
+dvc remote add -d storage s3://mybucket/dvcstore
+```
+
+
+
+
