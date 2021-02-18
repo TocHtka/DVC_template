@@ -11,18 +11,18 @@ resize:
   params:
     params.yaml:
       resize.height: 210
-      resize.width: 200
+      resize.width: 100
   outs:
   - path: data/resized
-    md5: 3ade300fa61c8ab0c8e27a8fe9cc6c1e.dir
-    size: 62035
+    md5: 322ba779bca6e6b1ace0d275e35ed0f0.dir
+    size: 30747
     nfiles: 4
 nl-mean:
   cmd: python src/nl_mean.py data/resized data/nl-mean
   deps:
   - path: data/resized
-    md5: 3ade300fa61c8ab0c8e27a8fe9cc6c1e.dir
-    size: 62035
+    md5: 322ba779bca6e6b1ace0d275e35ed0f0.dir
+    size: 30747
     nfiles: 4
   - path: src/nl_mean.py
     md5: 6238d92c792f3b2d87d92e3b2492d9a6
@@ -33,6 +33,6 @@ nl-mean:
       nl-mean.patch_size: 5
   outs:
   - path: data/nl-mean
-    md5: 6f4f04977b3948a9c1f51e1ec8628793.dir
-    size: 46842
+    md5: ca86c6e914b11834381bfea5193e5a69.dir
+    size: 23512
     nfiles: 4
