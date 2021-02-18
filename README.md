@@ -19,6 +19,12 @@ pip install dvc
 pip install scikit-image
 ```
 
+Get the data
+
+```
+dvc pull
+```
+
 ### Run code
 
 ```
