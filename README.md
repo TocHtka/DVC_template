@@ -171,6 +171,8 @@ or
 dvc remote add -d storage s3://mybucket/dvcstore
 ```
 
+## Tipps and Tricks
 
+* Use **Pycharm** to rename dependencies, source codes and outputs -> it will change **dvc.yaml** accordingly
 
 
