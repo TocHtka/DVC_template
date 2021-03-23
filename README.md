@@ -175,5 +175,6 @@ dvc remote add -d storage s3://mybucket/dvcstore
 
 * Use **Pycharm** to rename dependencies, source codes and outputs -> it will change **dvc.yaml** accordingly
 * Before sending a zip to a customer, delete the cash: `dvc gc -w`
+* **DVC only works in a git repo**. When sharing the project via zip with a customer, make sure to tell them to use `git init` inside the folder.
 * 
 
