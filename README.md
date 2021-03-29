@@ -126,15 +126,15 @@ Initialize dvc:
 dvc init
 ```
 
-Define your pipeline in **dvc.yaml**:
+Define your pipeline in **dvc.yaml** (created by `dvc init`):
 
 ```
 stages:
   resize: 							<- stage name
-    cmd: python src/resize.py data/raw_images data/resized 	<- command to be executed
+    cmd: python src/resize.py data/raw_images data/resized 	<- command to be executed and input and output as sys args
     deps: <- dependencies
-    - data/raw_images 						<- data
-    - src/resize.py 						<- code
+    - data/raw_images 						<- data dependency
+    - src/resize.py 						<- code dependency 
 #   - K:/DVC_external_dependency				<- external dependency on Helbling Drive.
 #   - s3://mybucket/data.txt					<- external dependency on S3.
     params: 							<- parameters
@@ -146,7 +146,9 @@ stages:
 ...
 ```
 
-Define parameters in **params.yaml**
+-> Inputs are written at two places: in the command as sys arg and as dependency. Outputs in the command and as output.
+
+Define parameters in **params.yaml** (create this file yourself)
 
 ```
 resize:
