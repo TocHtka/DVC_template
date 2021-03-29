@@ -202,4 +202,5 @@ When a **folder is an output**, you always need to **create that folder in the c
 * Before sending a zip to a customer, delete the cash: `dvc gc -w`
 * **DVC only works in a git repo**. When sharing the project via zip with a customer, make sure to tell them to use `git init` inside the folder.
 * When a **folder is an output**, you always need to **create that folder in the code (with `os.makedirs()`)**, as dvc will delete this folder when running this stage of the pipeline.
+* Moving data without the pipeline recomputing everything is somewhat tricky. There's a guide here: https://dvc.org/doc/command-reference/move.
 
