@@ -153,12 +153,9 @@ resize:
   width: 200
   height: 210
 nl-mean:
-resize:
-  width: 200
-  height: 210
-
-nl-mean:
   patch_size: 5
+  patch_distance: 6
+  h: 0.6
 ```
 
 Define a remote storage for data versioning and sharing with other colleagues:
@@ -170,6 +167,34 @@ or
 ```
 dvc remote add -d storage s3://mybucket/dvcstore
 ```
+
+### Code
+
+It is suggested to build up a python code as follows:
+
+```
+# Used for this structure
+import yaml
+import sys
+import glob
+import os
+
+# check the command
+if len(sys.argv) != 3:
+    sys.stderr.write("Arguments error. Usage:\n")
+    sys.stderr.write("\tpython prepare.py data-file\n")
+    sys.exit(1)
+
+# read the parameters
+params = yaml.safe_load(open('params.yaml'))['resize']
+width = params['width']
+height = params['height']
+
+# Create folder for output
+os.makedirs(os.path.join('data', 'resized'), exist_ok=True)
+```
+
+When a **folder is an output**, you always need to **create that folder in the code (with `os.makedirs()`)**, as dvc will delete this folder when running this stage of the pipeline.
 
 ## Tipps and Tricks
 
