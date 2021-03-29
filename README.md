@@ -146,7 +146,8 @@ stages:
 ...
 ```
 
--> Inputs are written at two places: in the command as sys arg and as dependency. Outputs in the command and as output.
+* Inputs are written at two places: in the command as sys arg and as dependency. Outputs in the command and as output.
+* The section `params:` is volontary.
 
 Define parameters in **params.yaml** (create this file yourself)
 
